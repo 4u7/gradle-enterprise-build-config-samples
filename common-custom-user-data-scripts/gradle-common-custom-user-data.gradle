@@ -91,7 +91,7 @@ void addCiMetadata() {
             if (teamCityServerUrl && System.getProperty('build.number') && System.getProperty('teamcity.buildType.id')) {
                 def buildNumber = System.getProperty('build.number')
                 def buildTypeId = System.getProperty('teamcity.buildType.id')
-                buildScan.link 'TeamCity build', "${appendIfMissing(teamCityServerUrl, '/')}viewLog.html?buildNumber=${buildNumber}&buildTypeId=${buildTypeId}"
+                buildScan.link 'TeamCity build', "${appendIfMissing(teamCityServerUrl, '/')}viewLog.html?buildNumber=${urlEncode(buildNumber)}&buildTypeId=${buildTypeId}"
             }
         }
         if (System.getProperty('build.number')) {
